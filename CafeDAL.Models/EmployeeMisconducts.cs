@@ -7,7 +7,6 @@ namespace CafeDAL.Models
 {
     public partial class EmployeeMisconducts : EntityBase
     {
-        [Required]
         public int EmployeeId { get; set; }
 
         [Required]

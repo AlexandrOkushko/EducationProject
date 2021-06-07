@@ -5,8 +5,8 @@ namespace CafeDAL.Models
 {
     public partial class Suppliers : EntityBase
     {
-        [Required, Display(Name = "EDRPOU")]
-        public int Edrpou { get; set; }
+        [Required]
+        public int EDRPOU { get; set; }
 
         [Required, StringLength(50)]
         public string Name { get; set; }

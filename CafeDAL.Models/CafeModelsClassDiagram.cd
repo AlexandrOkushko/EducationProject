@@ -17,15 +17,8 @@
   <Class Name="CafeDAL.Models.Employees">
     <Position X="8" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAEgAACAABAAAAAAAAAAAAAAKAAACAAAAIAAAAQA=</HashCode>
+      <HashCode>AAAAAEAAACAABAAAAAAAAAAAAAAKAAACAAAAIAAAAQg=</HashCode>
       <FileName>Employees.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="CafeDAL.Models.EmployeesRoles">
-    <Position X="6.25" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAIAAAAAAAAAEAAAAAAACAAAAAAAAAAAAAACAAA=</HashCode>
-      <FileName>EmployeesRoles.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CafeDAL.Models.DishIngredients">
@@ -49,17 +42,17 @@
       <FileName>Products.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CafeDAL.Models.ProductsOrders">
+  <Class Name="CafeDAL.Models.OrderProducts">
     <Position X="8" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>EAECAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>ProductsOrders.cs</FileName>
+      <FileName>OrderProducts.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CafeDAL.Models.ReadyDish">
     <Position X="4.5" Y="4" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAEAAAAAAAAAAACAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAQAAEAAAAAAAAAAACAAAAA=</HashCode>
       <FileName>ReadyDish.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -73,14 +66,14 @@
   <Class Name="CafeDAL.Models.Suppliers">
     <Position X="4.5" Y="6.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAEAAgAAAAAAAAAAAQAAAQAAAAABAAAAAAAEAAAAAA=</HashCode>
+      <HashCode>AAAEAAgAAAAAAAAAAABAAAQAAAAABAAAAAAAEAAAAAA=</HashCode>
       <FileName>Suppliers.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CafeDAL.Models.Warehouse">
     <Position X="9.75" Y="4" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>EAACAAAAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>EAACAAAAAAAAgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Warehouse.cs</FileName>
     </TypeIdentifier>
   </Class>

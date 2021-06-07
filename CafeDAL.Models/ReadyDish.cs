@@ -12,6 +12,9 @@ namespace CafeDAL.Models
         [Required]
         public DateTime ProductionDate { get; set; }
 
+        [Required]
+        public int Count { get; set; }
+
         [ForeignKey(nameof(DishId))]
         public virtual Dishes Dish { get; set; }
     }

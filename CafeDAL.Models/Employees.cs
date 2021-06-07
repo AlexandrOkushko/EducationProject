@@ -9,8 +9,8 @@ namespace CafeDAL.Models
         [Required, Display(Name = "First Name")]
         public string FirstName { get; set; }
 
-        [Required, Display(Name = "Second Name")]
-        public string SecondName { get; set; }
+        [Required, Display(Name = "Last Name")]
+        public string LastName { get; set; }
 
         [Required, Display(Name = "Passport Id")]
         public int PassportId { get; set; }
@@ -24,7 +24,7 @@ namespace CafeDAL.Models
         [Required]
         public bool Sex { get; set; }
 
-        [Required]
+        [Required, Phone]
         public string Phone { get; set; }
 
         [Required, EmailAddress]

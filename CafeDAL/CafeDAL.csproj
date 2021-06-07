@@ -24,8 +24,6 @@
 
   <ItemGroup>
     <Folder Include="DataInitializer\" />
-    <Folder Include="EF\" />
-    <Folder Include="Repos\" />
   </ItemGroup>
 
 </Project>
