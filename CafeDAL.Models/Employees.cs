@@ -1,6 +1,7 @@
 ﻿using CafeDAL.Models.Base;
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CafeDAL.Models
 {
@@ -27,10 +28,16 @@ namespace CafeDAL.Models
         [Required, Phone]
         public string Phone { get; set; }
 
+        [Required]
+        public int RoleId { get; set; }
+
         [Required, EmailAddress]
         public string Email { get; set; }
 
         [Required, DataType(DataType.Password)]
         public string Password { get; set; }
+
+        [ForeignKey(nameof(RoleId))]
+        public Roles Roles { get; set; }
     }
 }

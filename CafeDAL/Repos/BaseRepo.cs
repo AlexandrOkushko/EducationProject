@@ -16,7 +16,7 @@ namespace CafeDAL.Repos
         private readonly DbSet<T> _table;
         private readonly CafeContext _db;
         protected CafeContext Context => _db;
-
+        
         public BaseRepo() : this(new CafeContext())
         {
 
