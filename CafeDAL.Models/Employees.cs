@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CafeDAL.Models
 {
+    [Table("Employees")]
     public partial class Employees : EntityBase
     {
         [Required, Display(Name = "First Name"), StringLength(50, MinimumLength = 3)]
@@ -27,7 +28,6 @@ namespace CafeDAL.Models
         [Required, Phone, StringLength(30, MinimumLength = 3)]
         public string Phone { get; set; }
 
-        [Required]
         public int RoleId { get; set; }
 
         [Required, EmailAddress, StringLength(50, MinimumLength = 3)]

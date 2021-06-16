@@ -65,7 +65,7 @@ namespace CafeDAL.Repos
         }
 
         public T GetOne(int? id) 
-            => _table.Find();
+            => _table.Find(id);
 
         public List<T> GetSome(Expression<Func<T, bool>> where)
             => _table.Where(where).ToList();

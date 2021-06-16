@@ -3,177 +3,104 @@ using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 using System.IO;
+using CafeDAL.EF;
+using CafeDAL.Repos;
+using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace CafeDAL.TestDriver
 {
-    class Program
+    public class Program
     {
         static List<Employees> _employees = new();
 
-        static readonly string path = @"..\..\..\TestData\Data.txt";
         static void Main(string[] args)
         {
-            #region Initialize
-            InitializeFile();
+            Console.WriteLine(" * * * * * ADO.NET * * * * * \n");
 
-            ShowAllEmployees("Initialize");
-            #endregion
+            //using (var context = new CafeContext())
+            //{
+            //    // Migration in process 
+            //}
 
-            #region Add New Record
-            Employees employee4 = new()
+            Console.WriteLine(" * * * * * Using a Repository * * * * * \n");
+            using (var repo = new EmployeeRepo())
             {
-                Id = 4,
-                Timestamp = null,
-                FirstName = "Stepa",
-                LastName = "Adminov",
-                PassportId = 123456,
-                INN = 404040,
-                BirdthDate = new DateTime(2004, 4, 4),
-                Sex = true, // man
-                Phone = "12345678",
-                RoleId = 1, // 1 ====> Admin
-                Email = "Stepa@gmail.com",
-                Password = "********",
-            };
+                foreach (Employees c in repo.GetAll())
+                {
+                    Console.WriteLine(c);
+                }
+            }
 
-            AddNewRecord(employee4);
-
-            ShowAllEmployees("Add New Record");
-            #endregion
-
-            #region Update Record
-            employee4.INN = 12345678;
-
-            UpdateRecord(employee4);
-
-            ShowAllEmployees("Update Record");
-            #endregion
-
-            #region Remove Record
-            RemoveRecordById(1);
-
-            ShowAllEmployees("Remove Record");
-            #endregion
-
-            #region Serialize And Write To File
-            Console.WriteLine("\n" + (SerializeAndWrite() ? "Data was serialized" : "Data couldn't be serialized"));
-            #endregion
+            //TestConcurrency();
 
             Console.ReadKey();
         }
 
-        private static void ShowAllEmployees(string msg)
+
+        private static void AddNewRecord(Employees employees)
         {
-            Console.WriteLine($"* * * * * {msg} * * * * *");
-            foreach (var employee in _employees)
+            using (var repo = new EmployeeRepo())
             {
-                Console.WriteLine($"Id: {employee.Id}\t First Name: {employee.FirstName}\t Last Name: {employee.LastName}\t INN: {employee.INN}");
+                repo.Add(employees);
             }
-            Console.WriteLine($"{new string('-', 50)}\n");
         }
 
-        private static void InitializeFile()
+        private static void UpdateRecord(int employeeId)
         {
-            Employees employee1 = new Employees
+            using (var repo = new EmployeeRepo())
             {
-                Id = 1,
-                Timestamp = null,
-                FirstName = "Ivan",
-                LastName = "Adminov",
-                PassportId = 123456,
-                INN = 101010,
-                BirdthDate = new DateTime(2001, 1, 1),
-                Sex = true, // man
-                Phone = "12345678",
-                RoleId = 1, // 1 ====> Admin
-                Email = "Ivan@gmail.com",
-                Password = "********",
-            };
-            Employees employee2 = new Employees
-            {
-                Id = 2,
-                Timestamp = null,
-                FirstName = "Petya",
-                LastName = "Barmenov",
-                PassportId = 123456,
-                INN = 202020,
-                BirdthDate = new DateTime(2002, 2, 2),
-                Sex = true, // man
-                Phone = "12345678",
-                RoleId = 2, // 2 ====> Bartender
-                Email = "Petya@gmail.com",
-                Password = "********",
-            };
-            Employees employee3 = new Employees
-            {
-                Id = 3,
-                Timestamp = null,
-                FirstName = "Antonina",
-                LastName = "Chefovna",
-                PassportId = 123456,
-                INN = 303030,
-                BirdthDate = new DateTime(2003, 3, 3),
-                Sex = false, // woman
-                Phone = "12345678",
-                RoleId = 3, // 3 ====> Chef
-                Email = "Antonina@gmail.com",
-                Password = "********",
-            };
-
-            _employees.AddRange(new[] { employee1, employee2, employee3 });
-
-            SerializeAndWrite();
-
-            DeserializeAndRead();
-        }
-
-        private static void DeserializeAndRead()
-        {
-            string json; 
-            using (StreamReader streamReader = new(path))
-            {
-                json = streamReader.ReadToEnd();
+                // Grab the employee, change it, save! 
+                var employeeToUpdate = repo.GetOne(employeeId);
+                if (employeeToUpdate == null) return;
+                employeeToUpdate.INN = 12345678;
+                repo.Update(employeeToUpdate);
             }
-
-            _employees = JsonConvert.DeserializeObject<List<Employees>>(json);
         }
 
-        private static bool SerializeAndWrite()
+        private static void RemoveRecordByCar(Employees employeeToDelete)
         {
-            string json;
+            using (var repo = new EmployeeRepo())
+            {
+                repo.Delete(employeeToDelete);
+            }
+        }
 
+        private static void RemoveRecordById(int employeeId, byte[] timeStamp)
+        {
+            using (var repo = new EmployeeRepo())
+            {
+                repo.Delete(employeeId, timeStamp);
+            }
+        }
+
+        private static void TestConcurrency()
+        {
+            var repo1 = new EmployeeRepo();
+            //Use a second repo to make sure using a different context
+            var repo2 = new EmployeeRepo();
+            var employee1 = repo1.GetOne(1);
+            var employee2 = repo2.GetOne(1);
+            employee1.FirstName = "NewName";
+            repo1.Update(employee1);
+            employee2.FirstName = "OtherName";
             try
             {
-                json = JsonConvert.SerializeObject(_employees);
+                repo2.Update(employee2);
             }
-            catch (Exception)
+            catch (DbUpdateConcurrencyException ex)
             {
-                return false;
+                var entry = ex.Entries.Single();
+                var currentValues = entry.CurrentValues;
+                var originalValues = entry.OriginalValues;
+                var dbValues = entry.GetDatabaseValues();
+                Console.WriteLine(" * * * * * Concurrency * * * * * ");
+                Console.WriteLine("Type     First Name");
+                Console.WriteLine($"Current: {currentValues[nameof(Employees.FirstName)]}");
+                Console.WriteLine($"Orig:    {originalValues[nameof(Employees.FirstName)]}");
+                Console.WriteLine($"db:      {dbValues[nameof(Employees.FirstName)]}");
             }
-
-            using (StreamWriter streamWriter = new(path, false))
-            {
-                streamWriter.WriteLine(json);
-            }
-
-            return true;
         }
 
-        private static void AddNewRecord(Employees emp)
-        {
-            _employees.Add(emp);
-        }
-
-        private static void UpdateRecord(Employees emp)
-        {
-            for (int i = 0; i < _employees.Count; i++)
-                if (_employees[i].Id == emp.Id)
-                    _employees[i] = emp;
-        }
-
-        private static bool RemoveRecordById(int id)
-        {
-            return _employees.Remove(_employees.Find(x => x.Id == id));
-        }
     }
 }
