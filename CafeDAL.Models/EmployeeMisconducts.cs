@@ -12,7 +12,7 @@ namespace CafeDAL.Models
         [Required]
         public DateTime Date { get; set; }
 
-        [Required]
+        [Required, StringLength(300, MinimumLength = 3)]
         public string Misconduct { get; set; }
 
         [ForeignKey(nameof(EmployeeId))]

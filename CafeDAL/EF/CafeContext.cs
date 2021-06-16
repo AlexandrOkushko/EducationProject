@@ -24,10 +24,11 @@ namespace CafeDAL.EF
         public DbSet<CafeDAL.Models.DishIngredients> DishIngredients { get; set; }
         public DbSet<CafeDAL.Models.EmployeeMisconducts> EmployeeMisconducts { get; set; }
         public DbSet<CafeDAL.Models.Employees> Employees { get; set; }
+        public DbSet<CafeDAL.Models.Gender> Gender { get; set; }
         public DbSet<CafeDAL.Models.Orders> Orders { get; set; }
         public DbSet<CafeDAL.Models.Products> Products { get; set; }
         public DbSet<CafeDAL.Models.OrderProducts> OrderProducts { get; set; }
-        public DbSet<CafeDAL.Models.ReadyDish> ReadyDish { get; set; }
+        public DbSet<CafeDAL.Models.ReadyDishes> ReadyDish { get; set; }
         public DbSet<CafeDAL.Models.ReceiptProducts> ReceiptProducts { get; set; }
         public DbSet<CafeDAL.Models.Receipts> Receipts { get; set; }
         public DbSet<CafeDAL.Models.Roles> Roles { get; set; }

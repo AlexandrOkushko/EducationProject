@@ -8,19 +8,19 @@ namespace CafeDAL.Models
         [Required]
         public int EDRPOU { get; set; }
 
-        [Required, StringLength(50)]
+        [Required, StringLength(100, MinimumLength = 3)]
         public string Name { get; set; }
 
-        [Required, StringLength(100)]
+        [Required, StringLength(100, MinimumLength = 3)]
         public string TypeProduct { get; set; }
         
-        [Required, StringLength(30)]
+        [Required, StringLength(30, MinimumLength = 3)]
         public string ContactPhone { get; set; }
         
-        [Required, StringLength(30)]
+        [Required, StringLength(30, MinimumLength = 3)]
         public string ContactEmail { get; set; }
         
-        [Required, StringLength(50)]
+        [Required, StringLength(50, MinimumLength = 3)]
         public string ContactSite { get; set; }
     }
 }

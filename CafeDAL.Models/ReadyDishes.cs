@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CafeDAL.Models
 {
-    public partial class ReadyDish : EntityBase
+    public partial class ReadyDishes : EntityBase
     {
         public int DishId { get; set; }
 

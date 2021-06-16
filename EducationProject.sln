@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31321.278
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CafeDAL", "CafeDAL\CafeDAL.csproj", "{AAFB7641-6575-482A-8F33-CADC4231E84B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CafeDAL", "CafeDAL\CafeDAL.csproj", "{AAFB7641-6575-482A-8F33-CADC4231E84B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CafeDAL.Models", "CafeDAL.Models\CafeDAL.Models.csproj", "{33235F51-9EC3-423D-A019-59601CC2D44B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CafeDAL.Models", "CafeDAL.Models\CafeDAL.Models.csproj", "{33235F51-9EC3-423D-A019-59601CC2D44B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CafeDAL.TestDriver", "CafeDAL.TestDriver\CafeDAL.TestDriver.csproj", "{24052C0B-6C86-4547-AD4F-AC54714BC0BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CafeDAL.TestDriver", "CafeDAL.TestDriver\CafeDAL.TestDriver.csproj", "{24052C0B-6C86-4547-AD4F-AC54714BC0BE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

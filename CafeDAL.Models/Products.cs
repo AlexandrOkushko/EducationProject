@@ -7,11 +7,8 @@ namespace CafeDAL.Models
 {
     public partial class Products : EntityBase
     {
-        [Required]
+        [Required, StringLength(50, MinimumLength = 3)]
         public string Name { get; set; }
-
-        [Required, Display(Name = "Production Date")]
-        public DateTime ProductionDate { get; set; }
 
         [Required, Display(Name = "Expiration Date")]
         public DateTime ExpirationDate { get; set; }

@@ -6,10 +6,10 @@ namespace CafeDAL.Models
 {
     public partial class Dishes : EntityBase
     {
-        [Required]
+        [Required, StringLength(100, MinimumLength = 3)]
         public string Name { get; set; }
 
-        [Required]
+        [Required, StringLength(150, MinimumLength = 3)]
         public string Description { get; set; }
 
         [Required, Display(Name = "Expiration Date")]
