@@ -16,10 +16,10 @@ namespace CafeDAL.Models
         [Required]
         public decimal Price { get; set; }
 
-        [ForeignKey(nameof(ReceiptId))]
+        [NotMapped, ForeignKey(nameof(ReceiptId))]
         public virtual Receipts Receipt { get; set; }
 
-        [ForeignKey(nameof(DishId))]
+        [NotMapped, ForeignKey(nameof(DishId))]
         public virtual Dishes Dish { get; set; }
     }
 }

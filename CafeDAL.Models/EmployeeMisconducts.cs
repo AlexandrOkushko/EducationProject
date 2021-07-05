@@ -15,7 +15,7 @@ namespace CafeDAL.Models
         [Required, StringLength(300, MinimumLength = 3)]
         public string Misconduct { get; set; }
 
-        [ForeignKey(nameof(EmployeeId))]
+        [NotMapped, ForeignKey(nameof(EmployeeId))]
         public virtual Employees Employee { get; set; }
     }
 }

@@ -13,10 +13,10 @@ namespace CafeDAL.Models
         [Required]
         public int Quantity { get; set; }
 
-        [ForeignKey(nameof(DishId))]
+        [NotMapped, ForeignKey(nameof(DishId))]
         public virtual Dishes Dish { get; set; }
 
-        [ForeignKey(nameof(ProductId))]
+        [NotMapped, ForeignKey(nameof(ProductId))]
         public virtual Products Products { get; set; }
     }
 }

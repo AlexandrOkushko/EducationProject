@@ -36,10 +36,10 @@ namespace CafeDAL.Models
         [Required, DataType(DataType.Password), StringLength(30, MinimumLength = 3)]
         public string Password { get; set; }
 
-        [ForeignKey(nameof(RoleId))]
+        [NotMapped, ForeignKey(nameof(RoleId))]
         public Roles Roles { get; set; }
 
-        [ForeignKey(nameof(GenderId))]
+        [NotMapped, ForeignKey(nameof(GenderId))]
         public Gender Gender { get; set; }
     }
 }

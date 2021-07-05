@@ -15,7 +15,7 @@ namespace CafeDAL.Models
         [Required]
         public int Count { get; set; }
 
-        [ForeignKey(nameof(ProductId))]
+        [NotMapped, ForeignKey(nameof(ProductId))]
         public virtual Products Product { get; set; }
     }
 }

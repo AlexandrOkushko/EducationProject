@@ -12,7 +12,7 @@ namespace CafeDAL.Models
 		{
 			// Since the PetName column could be empty, supply
 			// the default name of **No Name**.
-			return $"{this.FirstName ?? "**No Name**"} {LastName} with Passport ID {PassportId} and INN {INN}.";
+			return $"Employee: [{this.FirstName ?? "**No Name**",10} {LastName,10}] with Passport ID: [{PassportId,10}] and INN: [{INN,10}].";
 		}
 	}
 }

@@ -18,7 +18,7 @@ namespace CafeDAL.Models
 
         public int SupplierId { get; set; }
 
-        [ForeignKey(nameof(SupplierId))]
+        [NotMapped, ForeignKey(nameof(SupplierId))]
         public virtual Suppliers Supplier { get; set; }
     }
 }

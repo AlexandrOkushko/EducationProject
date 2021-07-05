@@ -15,7 +15,7 @@ namespace CafeDAL.Models
         [Required]
         public int Count { get; set; }
 
-        [ForeignKey(nameof(DishId))]
+        [NotMapped, ForeignKey(nameof(DishId))]
         public virtual Dishes Dish { get; set; }
     }
 }

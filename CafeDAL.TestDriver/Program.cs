@@ -12,16 +12,17 @@ namespace CafeDAL.TestDriver
 {
     public class Program
     {
-        static List<Employees> _employees = new();
+        //static List<Employees> _employees = new();
 
         static void Main(string[] args)
         {
-            Console.WriteLine(" * * * * * ADO.NET * * * * * \n");
+            //Console.WriteLine(" * * * * * ADO.NET * * * * * \n");
 
             //using (var context = new CafeContext())
             //{
             //    // Migration in process 
             //}
+            UpdateRecord(3);
 
             Console.WriteLine(" * * * * * Using a Repository * * * * * \n");
             using (var repo = new EmployeeRepo())
@@ -31,6 +32,7 @@ namespace CafeDAL.TestDriver
                     Console.WriteLine(c);
                 }
             }
+
 
             //TestConcurrency();
 
