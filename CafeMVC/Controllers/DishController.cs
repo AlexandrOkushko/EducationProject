@@ -84,7 +84,7 @@ namespace CafeMVC.Controllers
         // POST: DishController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(int id, [Bind("Name,Description,ExpirationDate,Price,IsActual")] Dishes dish)
+        public IActionResult Edit(int id, [Bind("Name,Description,ExpirationDate,Price,IsActual,Id,Timestamp")] Dishes dish)
         {
             if (id != dish.Id)
             {
