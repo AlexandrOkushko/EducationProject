@@ -1,9 +1,11 @@
 ﻿using CafeDAL.Models.Base;
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CafeDAL.Models
 {
+    [Table("Dishes")]
     public partial class Dishes : EntityBase
     {
         [Required, StringLength(100, MinimumLength = 3)]

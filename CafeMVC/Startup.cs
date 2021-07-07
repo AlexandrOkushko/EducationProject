@@ -1,6 +1,8 @@
+using CafeDAL.EF;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -8,6 +10,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore.Diagnostics;
+using CafeDAL.Repos;
 
 namespace CafeMVC
 {
@@ -24,6 +28,13 @@ namespace CafeMVC
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddMvc();
+            services.AddDbContextPool<CafeContext>(
+                options => options.UseSqlServer(Configuration.GetConnectionString("Cafe"), 
+                    o => o.EnableRetryOnFailure())
+                );
+            services.AddScoped<IDishRepo, DishRepo>();
+                
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
