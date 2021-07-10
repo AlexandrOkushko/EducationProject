@@ -5,7 +5,7 @@
 }
 
 <p>
-    <h1>Dishes <button type="button" class="btn btn-outline-primary" asp-action="Create">Create New</button></h1>
+    <h1>Dishes @Html.ActionLink("Add new dish", "Create", "Dish", null, new { @class = "btn btn-outline-primary" })</h1>
 </p>
 <table class="table">
     <thead>

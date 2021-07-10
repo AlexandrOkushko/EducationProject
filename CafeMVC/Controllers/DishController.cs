@@ -39,6 +39,7 @@ namespace CafeMVC.Controllers
         }
 
         // GET: DishController/Create
+        [HttpGet]
         public IActionResult Create()
         {
             return View();
