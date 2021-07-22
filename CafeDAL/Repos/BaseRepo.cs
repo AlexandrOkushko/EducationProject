@@ -1,13 +1,11 @@
-﻿using CafeDAL.Models.Base;
-using CafeDAL.EF;
+﻿using CafeDAL.EF;
+using CafeDAL.Models.Base;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
-using Microsoft.EntityFrameworkCore.Storage;
 
 namespace CafeDAL.Repos
 {
@@ -88,20 +86,20 @@ namespace CafeDAL.Repos
             {
                 return _db.SaveChanges();
             }
-            catch (DbUpdateConcurrencyException ex)
+            catch (DbUpdateConcurrencyException)
             {
                 // Thrown when there is a concurrency error
                 // for now, just rethrow the exception.
                 throw;
             }
-            catch (RetryLimitExceededException ex)
+            catch (RetryLimitExceededException)
             {
                 //Thrown when max retries have been hit
                 //Examine the inner exception(s) for additional details
                 //for now, just rethrow the exception
                 throw;
             }
-            catch (DbUpdateException ex)
+            catch (DbUpdateException)
             {
                 //Thrown when database update fails
                 //Examine the inner exception(s) for additional 
@@ -109,7 +107,7 @@ namespace CafeDAL.Repos
                 //for now, just rethrow the exception
                 throw;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 //some other exception happened and should be handled
                 throw;

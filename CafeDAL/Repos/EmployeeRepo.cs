@@ -1,16 +1,17 @@
-﻿using CafeDAL.Models;
+﻿using CafeDAL.EF;
+using CafeDAL.Models;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using static Microsoft.EntityFrameworkCore.EF;
 
 namespace CafeDAL.Repos
 {
     public class EmployeeRepo : BaseRepo<Employees>, IEmployeeRepo
     {
+        public EmployeeRepo(CafeContext context) : base(context)
+        {
+        }
         public List<Employees> GetOnlyChef()
             => Context.Employees.Where(c => c.RoleId == 3).ToList(); // 3 = Chef
 

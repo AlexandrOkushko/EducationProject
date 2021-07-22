@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CafeDAL.EF;
+﻿using CafeDAL.EF;
 using CafeDAL.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Linq;
 using static Microsoft.EntityFrameworkCore.EF;
 
 namespace CafeDAL.Repos
@@ -14,7 +11,6 @@ namespace CafeDAL.Repos
     {
         public DishRepo(CafeContext context) : base(context)
         {
-
         }
 
         public List<Dishes> Search(string searchString)

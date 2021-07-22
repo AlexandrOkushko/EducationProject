@@ -5,6 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="DataInitializer\**" />
+    <EmbeddedResource Remove="DataInitializer\**" />
+    <None Remove="DataInitializer\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.7" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.7">
       <PrivateAssets>all</PrivateAssets>
@@ -23,7 +29,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="DataInitializer\" />
     <Folder Include="AppData\" />
   </ItemGroup>
 
