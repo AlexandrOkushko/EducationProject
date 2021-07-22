@@ -1,0 +1,12 @@
+﻿@{ 
+    ViewData["Title"] = "Employee page"; 
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Эта страница доступна только для тех, кто будет работать или работает в нашей компании</p>
+    <p>Если вы здесь впервые, то пожалуйста добавьте свои данные в базу</p>
+    <p>Нажмите на поле снизу и добавьте о себе всю информацию которую знаете и ту которую не знаете, тоже добавьте</p>
+    @Html.ActionLink("Заполнить форму", "Create", "Employee", null, new { @class = "btn btn-outline-success" })
+    @Html.ActionLink("Наши сотрудники", "List", "Employee", null, new { @class = "btn btn-outline-primary" })
+</div>

@@ -1,0 +1,73 @@
+﻿@model CafeDAL.Models.Employees
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="card">
+    <div class="card-header">
+        <h1>Employees info</h1>
+    </div>
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.FirstName)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.FirstName)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.LastName)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.LastName)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.PassportId)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.PassportId)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.INN)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.INN)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.BirdthDate)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.BirdthDate)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.GenderId)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.GenderId)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Phone)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Phone)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.RoleId)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.RoleId)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+        </dl>
+    </div>
+</div>
+
+<div>
+    <a asp-action="List">Back to List</a>
+</div>

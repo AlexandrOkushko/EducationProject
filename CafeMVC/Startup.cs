@@ -34,6 +34,7 @@ namespace CafeMVC
                     o => o.EnableRetryOnFailure())
                 );
             services.AddScoped<IDishRepo, DishRepo>();
+            services.AddScoped<IEmployeeRepo, EmployeeRepo>();
             services.AddApplicationInsightsTelemetry();
 
         }
