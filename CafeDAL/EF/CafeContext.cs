@@ -10,7 +10,7 @@ namespace CafeDAL.EF
 {
     public class CafeContext : DbContext
     {
-        internal CafeContext()
+        public CafeContext()
         {
 
         }
