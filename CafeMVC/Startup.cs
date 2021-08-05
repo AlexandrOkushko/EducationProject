@@ -30,7 +30,7 @@ namespace CafeMVC
             services.AddControllersWithViews();
             services.AddMvc();
             services.AddDbContextPool<CafeContext>(
-                options => options.UseSqlServer(Configuration.GetConnectionString("Cafe"), 
+                options => options.UseSqlServer(Configuration.GetConnectionString("Db"), 
                     o => o.EnableRetryOnFailure())
                 );
             services.AddScoped<IDishRepo, DishRepo>();
@@ -61,6 +61,9 @@ namespace CafeMVC
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute(
+                    name : "Administrator",
+                    pattern : "Administrator/{controller=Dashboard}/{action=Index}/{id?}");
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
