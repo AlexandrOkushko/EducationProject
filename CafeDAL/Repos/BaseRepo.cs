@@ -58,6 +58,7 @@ namespace CafeDAL.Repos
 
         public int Delete(T entity)
         {
+            _db.Remove(entity);
             _db.Entry(entity).State = EntityState.Deleted;
             return SaveChanges();
         }

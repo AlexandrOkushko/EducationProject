@@ -17,7 +17,7 @@ namespace CafeDAL.Repos
             => Context.Dishes.Where(c => Functions.Like(c.Name, $"%{searchString}%")).ToList();
 
         public override List<Dishes> GetAll()
-            => GetAll(x => x.Name, true).ToList();
+            => GetAll(x => x.Id, true).ToList();
 
         public List<Dishes> GetActualDishes()
             => GetSome(x => x.IsActual == true);
