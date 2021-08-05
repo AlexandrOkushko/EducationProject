@@ -78,10 +78,6 @@ namespace Cafe.Tests
             Assert.AreEqual(oldCount - 1, _dishRepo.GetAll().Count);
         }
         
-
-        // ARRANGE
-        // ACT
-        // ASSERT
         [Test(Description = "send name = 'Суп'")]
         public void Search_Name_AllDishesWithTheSameName()
         {
@@ -95,6 +91,5 @@ namespace Cafe.Tests
             // ASSERT
             Assert.Greater(dishes.Count, 0);
         }
-        
     }
 }
