@@ -12,6 +12,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using CafeDAL.Repos;
+using CafeDAL.Repos.Interfaces;
 
 namespace CafeMVC
 {

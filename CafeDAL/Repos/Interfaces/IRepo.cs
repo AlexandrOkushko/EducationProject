@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq.Expressions;
 
-namespace CafeDAL.Repos
+namespace CafeDAL.Repos.Interfaces
 {
     public interface IRepo<T>
     {

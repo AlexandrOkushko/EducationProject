@@ -3,6 +3,7 @@ using CafeDAL.Repos;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
+using CafeDAL.Repos.Interfaces;
 
 namespace CafeMVC.Controllers
 {

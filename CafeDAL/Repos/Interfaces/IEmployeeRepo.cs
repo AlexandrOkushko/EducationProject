@@ -1,7 +1,7 @@
-﻿using CafeDAL.Models;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using CafeDAL.Models;
 
-namespace CafeDAL.Repos
+namespace CafeDAL.Repos.Interfaces
 {
     public interface IEmployeeRepo : IRepo<Employees>
     {
